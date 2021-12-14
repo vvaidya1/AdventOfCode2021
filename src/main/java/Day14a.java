@@ -2,8 +2,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
-public class App {
-    public static void main(String[] args) {
+public class Day14a {
+    void process() {
         try {
             File myObj = new File("src/main/resources/input_day14.txt");
             Scanner reader = new Scanner(myObj);
@@ -31,7 +31,7 @@ public class App {
                     String key = input.substring(i - 1, i + 1);
                     result.append(polymerTemplate.get(key));
                 }
-                result.append(input.charAt(input.length()-1));
+                result.append(input.charAt(input.length() - 1));
                 input = result.toString();
                 System.out.println(result);
             }

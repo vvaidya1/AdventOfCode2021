@@ -51,7 +51,7 @@ public class Day13b {
             }
 
             int maxX = Objects.requireNonNull(results.stream().max(Comparator.comparingInt(i -> i.x)).orElse(null)).x;
-            int maxY = results.stream().max(Comparator.comparingInt(i -> i.y)).orElse(null).y;
+            int maxY = Objects.requireNonNull(results.stream().max(Comparator.comparingInt(i -> i.y)).orElse(null)).y;
             for (int i = 0; i <= maxY; i++) {
                 for (int j = 0; j <= maxX; j++) {
                     System.out.print(results.contains(new Coordinate(j, i)) ? "█" : " ");
