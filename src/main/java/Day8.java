@@ -15,64 +15,18 @@ public class Day8 {
                 var charRow = reader.nextLine().toCharArray();
                 List<Integer> row = new ArrayList<>();
 
-                for (int i = 0; i < charRow.length; i++) {
-                    row.add(Character.digit(charRow[i], 10));
+                for (char c : charRow) {
+                    row.add(Character.digit(c, 10));
                 }
 
                 input.add(row);
             }
 
-            /*
-            for (int i = 0; i < input.size(); i++) {
-                for (int j = 0; j < input.get(0).size(); j++) {
-                    int item = input.get(i).get(j);
-                    if (i - 1 >= 0 && i + 1 < input.size() && j - 1 >= 0 && j + 1 < input.get(0).size()) {
-                        if (item < input.get(i - 1).get(j) && item < input.get(i + 1).get(j) && item < input.get(i).get(j - 1) && item < input.get(i).get(j + 1)) {
-                            risk += item + 1;
-                        }
-                    } else if (i + 1 < input.size() && j - 1 >= 0 && j + 1 < input.get(0).size()) {
-                        if (item < input.get(i + 1).get(j) && item < input.get(i).get(j - 1) && item < input.get(i).get(j + 1)) {
-                            risk += item + 1;
-                        }
-                    } else if (i - 1 >= 0 && i + 1 < input.size() && j + 1 < input.get(0).size()) {
-                        if (item < input.get(i - 1).get(j) && item < input.get(i + 1).get(j) && item < input.get(i).get(j + 1)) {
-                            risk += item + 1;
-                        }
-                    } else if (i - 1 >= 0 && j - 1 >= 0 && j + 1 < input.get(0).size()) {
-                        if (item < input.get(i - 1).get(j) && item < input.get(i).get(j - 1) && item < input.get(i).get(j + 1)) {
-                            risk += item + 1;
-                        }
-                    } else if (i - 1 >= 0 && i + 1 < input.size() && j - 1 >= 0) {
-                        if (item < input.get(i - 1).get(j) && item < input.get(i + 1).get(j) && item < input.get(i).get(j - 1)) {
-                            risk += item + 1;
-                        }
-                    } else if (i + 1 < input.size() && j + 1 < input.get(0).size()) {
-                        if (item < input.get(i + 1).get(j) && item < input.get(i).get(j + 1)) {
-                            risk += item + 1;
-                        }
-                    } else if (i - 1 < input.size() && j + 1 < input.get(0).size()) {
-                        if (item < input.get(i - 1).get(j) && item < input.get(i).get(j + 1)) {
-                            risk += item + 1;
-                        }
-                    } else if (i + 1 < input.size() && j - 1 < input.get(0).size()) {
-                        if (item < input.get(i + 1).get(j) && item < input.get(i).get(j - 1)) {
-                            risk += item + 1;
-                        }
-                    } else if (i - 1 < input.size() && j - 1 < input.get(0).size()) {
-                        if (item < input.get(i - 1).get(j) && item < input.get(i).get(j - 1)) {
-                            risk += item + 1;
-                        }
-                    }
-
-                }
-            }
-            */
             boolean[][] visited = new boolean[input.size()][input.get(0).size()];
-
             for (int i = 0; i < input.size(); i++) {
                 for (int j = 0; j < input.get(0).size(); j++) {
                     var key = input.get(i).get(j);
-                    if (key == 9 || visited[i][j] == true)
+                    if (key == 9 || visited[i][j])
                         continue;
 
                     int size = dfs(input, i, j, visited);
@@ -94,8 +48,7 @@ public class Day8 {
 
             System.out.println(result);
             reader.close();
-        } catch (
-                FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
@@ -103,7 +56,7 @@ public class Day8 {
     }
 
     static int dfs(List<List<Integer>> input, int i, int j, boolean[][] visited) {
-        if (input.get(i).get(j) == 9 || visited[i][j] == true)
+        if (input.get(i).get(j) == 9 || visited[i][j])
             return 0;
 
         visited[i][j] = true;
