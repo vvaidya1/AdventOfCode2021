@@ -4,9 +4,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
-public class App {
-
-    public static void main(String[] args) {
+public class Day15a {
+    void process() {
         try {
             File myObj = new File("src/main/resources/input_day15.txt");
             Scanner reader = new Scanner(myObj);

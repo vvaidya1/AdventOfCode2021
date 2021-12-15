@@ -1,4 +1,4 @@
-import Common.Coordinate;
+import Common.Point;
 import Common.Fold;
 
 import java.io.File;
@@ -10,8 +10,8 @@ public class Day13a {
         try {
             File myObj = new File("src/main/resources/input_day13.txt");
             Scanner reader = new Scanner(myObj);
-            Set<Coordinate> results = new LinkedHashSet<>();
-            Set<Coordinate> coordinates = new HashSet<>();
+            Set<Point> results = new LinkedHashSet<>();
+            Set<Point> coordinates = new HashSet<>();
             LinkedHashSet<Fold> folds = new LinkedHashSet<>();
 
             while (reader.hasNextLine()) {
@@ -19,7 +19,7 @@ public class Day13a {
                 String[] input;
                 if (line.equals("")) break;
                 else input = line.split(",");
-                coordinates.add(new Coordinate(Integer.parseInt(input[0]), Integer.parseInt(input[1])));
+                coordinates.add(new Point(Integer.parseInt(input[0]), Integer.parseInt(input[1])));
             }
 
             while (reader.hasNextLine()) {
@@ -32,18 +32,18 @@ public class Day13a {
 
             //Process first instruction
             Fold fold = (Fold) folds.toArray()[0];
-            for (Coordinate coordinate : coordinates) {
+            for (Point coordinate : coordinates) {
                 if (fold.axis.equals("y")) {
                     if (coordinate.y <= fold.value) {
-                        results.add(new Coordinate(coordinate.x, coordinate.y));
+                        results.add(new Point(coordinate.x, coordinate.y));
                     } else {
-                        results.add(new Coordinate(coordinate.x, fold.value - (coordinate.y - fold.value)));
+                        results.add(new Point(coordinate.x, fold.value - (coordinate.y - fold.value)));
                     }
                 } else {
                     if (coordinate.x <= fold.value) {
-                        results.add(new Coordinate(coordinate.x, coordinate.y));
+                        results.add(new Point(coordinate.x, coordinate.y));
                     } else {
-                        results.add(new Coordinate(fold.value - (coordinate.x - fold.value), coordinate.y));
+                        results.add(new Point(fold.value - (coordinate.x - fold.value), coordinate.y));
                     }
                 }
             }

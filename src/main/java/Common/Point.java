@@ -2,11 +2,11 @@ package Common;
 
 import java.util.Objects;
 
-public class Coordinate {
+public class Point {
     public int x;
     public int y;
 
-    public Coordinate(int i, int j) {
+    public Point(int i, int j) {
         x = i;
         y = j;
     }
@@ -15,7 +15,7 @@ public class Coordinate {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Coordinate that = (Coordinate) o;
+        Point that = (Point) o;
         return x == that.x && y == that.y;
     }
 
