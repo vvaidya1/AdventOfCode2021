@@ -42,15 +42,15 @@ public class Day15a {
         if (riskMap.containsKey(key)) {
             return riskMap.get(key);
         } else {
-            int riskNextRow = 0;
+            int riskNextCellRow = 0;
             if (i + 1 < riskPositions.size())
-                riskNextRow += dfs(riskPositions, i + 1, j, riskMap);
+                riskNextCellRow += dfs(riskPositions, i + 1, j, riskMap);
 
-            int riskNextCol = 0;
+            int riskNextCellCol = 0;
             if (j + 1 < riskPositions.get(0).size())
-                riskNextCol += dfs(riskPositions, i, j + 1, riskMap);
+                riskNextCellCol += dfs(riskPositions, i, j + 1, riskMap);
 
-            int minRisk = (riskNextCol != 0 && riskNextRow != 0) ? Math.min(riskNextCol, riskNextRow) : (riskNextCol == 0 ? riskNextRow : riskNextCol);
+            int minRisk = (riskNextCellCol != 0 && riskNextCellRow != 0) ? Math.min(riskNextCellCol, riskNextCellRow) : (riskNextCellCol == 0 ? riskNextCellRow : riskNextCellCol);
             int currentMinRisk = riskPositions.get(i).get(j) + minRisk;
             riskMap.put(key, currentMinRisk);
             return currentMinRisk;
