@@ -1,6 +1,5 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -17,7 +16,7 @@ public class App {
                 input.add(reader.nextLine());
             }
 
-            (new Day16a()).process(input);
+            (new Day16b()).process(input);
             reader.close();
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred.");
