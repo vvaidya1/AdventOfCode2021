@@ -7,7 +7,6 @@ import java.util.Scanner;
 
 public class App {
 
-
     public static void main(String[] args) {
         try {
             File myObj = new File("src/main/resources/input_day16.txt");
@@ -18,13 +17,11 @@ public class App {
                 input.add(reader.nextLine());
             }
 
-            Day16a.process(input);
+            (new Day16a()).process(input);
             reader.close();
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
     }
-
-
 }

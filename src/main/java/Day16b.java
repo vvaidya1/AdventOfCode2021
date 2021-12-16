@@ -1,7 +1,7 @@
 import java.math.BigInteger;
 import java.util.List;
 
-public class Day16a {
+public class Day16b {
     String binary;
     int cursor = 0;
     int solution1;
