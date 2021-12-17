@@ -8,7 +8,7 @@ public class App {
 
     public static void main(String[] args) {
         try {
-            File myObj = new File("src/main/resources/input_day16.txt");
+            File myObj = new File("src/main/resources/input_day17.txt");
             Scanner reader = new Scanner(myObj);
             List<String> input = new ArrayList<>();
 
@@ -16,7 +16,7 @@ public class App {
                 input.add(reader.nextLine());
             }
 
-            (new Day16b()).process(input);
+            (new Day17a()).process(input);
             reader.close();
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred.");
