@@ -16,7 +16,7 @@ public class App {
                 input.add(reader.nextLine());
             }
 
-            (new Day17a()).process(input);
+            (new Day17b()).process(input);
             reader.close();
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred.");
